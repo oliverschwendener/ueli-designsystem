@@ -8,4 +8,4 @@ import SettingList from "./components/SettingList.vue";
 
 import "./variables.css";
 
-export { SliderInput, NumberInput, Setting, SettingList, Icon, IconButton, Notification };
+export { Icon, IconButton, Notification, NumberInput, Setting, SettingList, SliderInput };
