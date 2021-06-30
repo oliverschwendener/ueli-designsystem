@@ -13,6 +13,7 @@
     },
     "description": "Design System for ueli",
     "keywords": [],
+    "main": "index.ts",
     "scripts": {
         "lint": "./node_modules/.bin/eslint \"components/**/*{ts,vue}\"",
         "bundle": "./node_modules/.bin/webpack",
