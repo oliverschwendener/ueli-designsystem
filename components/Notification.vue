@@ -77,15 +77,15 @@ export default defineComponent({
 }
 
 .notification.success {
-    background-color: var(--ueli-green);
+    background-color: var(--ueli-green-a400);
 }
 
 .notification.warning {
-    background-color: var(--ueli-orange);
+    background-color: var(--ueli-orange-500);
 }
 
 .notification.danger {
-    background-color: var(--ueli-red);
+    background-color: var(--ueli-red-500);
 }
 
 .notification-body {

@@ -1,3 +1,4 @@
+import UButton from "./components/UButton.vue";
 import Icon from "./components/Icon.vue";
 import IconButton from "./components/IconButton.vue";
 import Notification from "./components/Notification.vue";
@@ -8,4 +9,4 @@ import SettingList from "./components/SettingList.vue";
 
 import "./variables.css";
 
-export { Icon, IconButton, Notification, NumberInput, Setting, SettingList, SliderInput };
+export { UButton, Icon, IconButton, Notification, NumberInput, Setting, SettingList, SliderInput };
