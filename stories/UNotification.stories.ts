@@ -1,17 +1,17 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Notification } from "../index";
+import { UNotification } from "../index";
 
 export default {
-    title: "Notification",
-    component: Notification,
+    title: "UNotification",
+    component: UNotification,
 };
 
 const Template = (args: any) => ({
-    components: { Notification },
+    components: { UNotification },
     setup() {
         return { args };
     },
-    template: `<Notification v-bind="args" />`,
+    template: `<UNotification v-bind="args" />`,
 });
 
 export const Default: any = Template.bind({});

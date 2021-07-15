@@ -1,21 +1,21 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Setting, NumberInput } from "../index";
+import { USetting, UNumberInput } from "../index";
 
 export default {
-    title: "Setting",
-    component: Setting,
+    title: "USetting",
+    component: USetting,
 };
 
 const Template = () => ({
-    components: { Setting, NumberInput },
-    template: `<Setting>
+    components: { USetting, UNumberInput },
+    template: `<USetting>
         <template v-slot:label>
             Please enter a number:
         </template>
         <template v-slot:body>
-            <NumberInput :value="100" />
+            <UNumberInput :value="100" />
         </template>
-    </Setting>`,
+    </USetting>`,
 });
 
 export const WithNumberInput: any = Template.bind({});

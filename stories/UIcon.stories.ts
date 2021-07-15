@@ -1,17 +1,17 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Icon } from "../index";
+import { UIcon } from "../index";
 
 export default {
-    title: "Icon",
-    component: Icon,
+    title: "UIcon",
+    component: UIcon,
 };
 
 const Template = (args: any) => ({
-    components: { Icon },
+    components: { UIcon },
     setup() {
         return { args };
     },
-    template: `<Icon v-bind="args" />`,
+    template: `<UIcon v-bind="args" />`,
 });
 
 // Alarms

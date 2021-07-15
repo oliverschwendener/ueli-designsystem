@@ -1,17 +1,17 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { NumberInput } from "../index";
+import { UNumberInput } from "../index";
 
 export default {
-    title: "NumberInput",
-    component: NumberInput,
+    title: "UNumberInput",
+    component: UNumberInput,
 };
 
 const Template = (args: any) => ({
-    components: { NumberInput },
+    components: { UNumberInput },
     setup: () => {
         return { args };
     },
-    template: '<NumberInput v-bind="args" />',
+    template: '<UNumberInput v-bind="args" />',
 });
 
 export const Default: any = Template.bind({});

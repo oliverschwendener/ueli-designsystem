@@ -1,17 +1,17 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { SliderInput } from "../index";
+import { USliderInput } from "../index";
 
 export default {
-    title: "SliderInput",
-    component: SliderInput,
+    title: "USliderInput",
+    component: USliderInput,
 };
 
 const Template = (args: any) => ({
-    components: { SliderInput },
+    components: { USliderInput },
     setup: () => {
         return { args };
     },
-    template: '<SliderInput v-bind="args" />',
+    template: '<USliderInput v-bind="args" />',
 });
 
 export const Default: any = Template.bind({});

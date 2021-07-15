@@ -1,17 +1,17 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { IconButton } from "../index";
+import { UIconButton } from "../index";
 
 export default {
-    title: "IconButton",
-    component: IconButton,
+    title: "UIconButton",
+    component: UIconButton,
 };
 
 const Template = (args: any) => ({
-    components: { IconButton },
+    components: { UIconButton },
     setup() {
         return { args };
     },
-    template: `<IconButton v-bind="args" />`,
+    template: `<UIconButton v-bind="args" />`,
 });
 
 export const Default: any = Template.bind({});

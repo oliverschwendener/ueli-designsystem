@@ -1,12 +1,12 @@
 import UButton from "./components/UButton.vue";
-import Icon from "./components/Icon.vue";
-import IconButton from "./components/IconButton.vue";
-import Notification from "./components/Notification.vue";
-import NumberInput from "./components/NumberInput.vue";
-import SliderInput from "./components/SliderInput.vue";
-import Setting from "./components/Setting.vue";
-import SettingList from "./components/SettingList.vue";
+import UIcon from "./components/UIcon.vue";
+import UIconButton from "./components/UIconButton.vue";
+import UNotification from "./components/UNotification.vue";
+import UNumberInput from "./components/UNumberInput.vue";
+import USetting from "./components/USetting.vue";
+import USettingList from "./components/USettingList.vue";
+import USliderInput from "./components/USliderInput.vue";
 
 import "./variables.css";
 
-export { UButton, Icon, IconButton, Notification, NumberInput, Setting, SettingList, SliderInput };
+export { UButton, UIcon, UIconButton, UNotification, UNumberInput, USetting, USettingList, USliderInput };

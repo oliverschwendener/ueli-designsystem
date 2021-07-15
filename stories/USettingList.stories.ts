@@ -1,24 +1,24 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { SettingList, Setting, NumberInput } from "../index";
+import { USettingList, USetting, UNumberInput } from "../index";
 
 export default {
-    title: "SettingList",
-    component: SettingList,
+    title: "USettingList",
+    component: USettingList,
 };
 
 const Template = (args: any) => ({
-    components: { SettingList, Setting, NumberInput },
+    components: { USettingList, USetting, UNumberInput },
     setup() {
         return { args };
     },
-    template: `<SettingList v-bind="args">
+    template: `<USettingList v-bind="args">
         <template v-slot:settings>
-            <Setting>
+            <USetting>
                 <template v-slot:label>Please enter a number:</template>
-                <template v-slot:body><NumberInput :value="1" /></template>
-            </Setting>
+                <template v-slot:body><UNumberInput :value="1" /></template>
+            </USetting>
         </template>
-    </SettingList>`,
+    </USettingList>`,
 });
 
 export const WithTitle: any = Template.bind({});

@@ -1,19 +1,19 @@
 <template>
     <div class="notification" :class="type">
         <div class="notification-body">
-            <Icon v-if="hasIcon" class="notification-icon" :icon="icon" />
+            <UIcon v-if="hasIcon" class="notification-icon" :icon="icon" />
             {{ message }}
         </div>
         <div class="notification-actions">
-            <IconButton v-if="closable" size="small" icon="x" @click="close" />
+            <UIconButton v-if="closable" size="small" icon="x" @click="close" />
         </div>
     </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import IconButton from "./IconButton.vue";
-import Icon from "./Icon.vue";
+import UIconButton from "./UIconButton.vue";
+import UIcon from "./UIcon.vue";
 
 export default defineComponent({
     props: {
@@ -40,8 +40,8 @@ export default defineComponent({
     },
 
     components: {
-        Icon,
-        IconButton,
+        UIcon,
+        UIconButton,
     },
 
     computed: {

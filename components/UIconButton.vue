@@ -1,16 +1,16 @@
 <template>
     <div class="icon-button" :class="size">
-        <Icon class="icon" :class="size" :icon="icon" />
+        <UIcon class="icon" :class="size" :icon="icon" />
     </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import Icon from "./Icon.vue";
+import UIcon from "./UIcon.vue";
 
 export default defineComponent({
     components: {
-        Icon,
+        UIcon,
     },
 
     props: {
