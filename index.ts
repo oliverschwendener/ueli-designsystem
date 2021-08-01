@@ -6,7 +6,8 @@ import UNumberInput from "./components/UNumberInput.vue";
 import USetting from "./components/USetting.vue";
 import USettingList from "./components/USettingList.vue";
 import USliderInput from "./components/USliderInput.vue";
+import UToggle from "./components/UToggle.vue";
 
 import "./variables.css";
 
-export { UButton, UIcon, UIconButton, UNotification, UNumberInput, USetting, USettingList, USliderInput };
+export { UButton, UIcon, UIconButton, UNotification, UNumberInput, USetting, USettingList, USliderInput, UToggle };
