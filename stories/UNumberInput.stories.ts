@@ -1,12 +1,16 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+import { Meta, Story } from "@storybook/vue3";
 import { UNumberInput } from "../index";
 
-export default {
+export default <Meta<NumberInputProps>>{
     title: "UNumberInput",
     component: UNumberInput,
 };
 
-const Template = (args: any) => ({
+interface NumberInputProps {
+    value: number;
+}
+
+const Template: Story<NumberInputProps> = (args) => ({
     components: { UNumberInput },
     setup: () => {
         return { args };
@@ -14,8 +18,6 @@ const Template = (args: any) => ({
     template: '<UNumberInput v-bind="args" />',
 });
 
-export const Default: any = Template.bind({});
+export const Default = Template.bind({});
 
-Default.args = {
-    value: 1138,
-};
+Default.args = { value: 1138 };

@@ -1,13 +1,17 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+import { Meta, Story } from "@storybook/vue3";
 import { UToggle } from "../index";
 import { ref } from "vue";
 
-export default {
+export default <Meta<ToggleProps>>{
     title: "UToggle",
     component: UToggle,
 };
 
-const Template = (args: { toggled: boolean }) => ({
+interface ToggleProps {
+    toggled: boolean;
+}
+
+const Template: Story<ToggleProps> = (args) => ({
     components: { UToggle },
     setup() {
         const toggled = ref(args.toggled);
@@ -21,5 +25,5 @@ const Template = (args: { toggled: boolean }) => ({
     template: `<div><UToggle :toggled="toggled" @toggle="toggle" /></div>`,
 });
 
-export const DefaultToggle: any = Template.bind({});
+export const DefaultToggle = Template.bind({});
 DefaultToggle.args = { toggled: false };

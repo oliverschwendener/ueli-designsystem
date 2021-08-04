@@ -1,12 +1,20 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+import { Meta, Story } from "@storybook/vue3";
 import { USliderInput } from "../index";
 
-export default {
+export default <Meta<SliderInputProps>>{
     title: "USliderInput",
     component: USliderInput,
 };
 
-const Template = (args: any) => ({
+interface SliderInputProps {
+    min: number;
+    max: number;
+    step: number;
+    value: number;
+    displayValue: boolean;
+}
+
+const Template: Story<SliderInputProps> = (args) => ({
     components: { USliderInput },
     setup: () => {
         return { args };
@@ -14,7 +22,7 @@ const Template = (args: any) => ({
     template: '<USliderInput v-bind="args" />',
 });
 
-export const Default: any = Template.bind({});
+export const Default = Template.bind({});
 
 Default.args = {
     min: 0,

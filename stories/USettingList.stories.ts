@@ -1,12 +1,16 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+import { Meta, Story } from "@storybook/vue3";
 import { USettingList, USetting, UNumberInput } from "../index";
 
-export default {
+export default <Meta<SettingListProps>>{
     title: "USettingList",
     component: USettingList,
 };
 
-const Template = (args: any) => ({
+interface SettingListProps {
+    title?: string;
+}
+
+const Template: Story<SettingListProps> = (args) => ({
     components: { USettingList, USetting, UNumberInput },
     setup() {
         return { args };
@@ -21,11 +25,8 @@ const Template = (args: any) => ({
     </USettingList>`,
 });
 
-export const WithTitle: any = Template.bind({});
-export const WithoutTitle: any = Template.bind({});
+export const WithTitle = Template.bind({});
+export const WithoutTitle = Template.bind({});
 
-WithTitle.args = {
-    title: "This is a title",
-};
-
+WithTitle.args = { title: "This is a title" };
 WithoutTitle.args = {};

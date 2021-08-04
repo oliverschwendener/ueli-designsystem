@@ -1,12 +1,16 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+import { Meta, Story } from "@storybook/vue3";
 import { UIcon } from "../index";
 
-export default {
+export default <Meta<IconProps>>{
     title: "UIcon",
     component: UIcon,
 };
 
-const Template = (args: any) => ({
+interface IconProps {
+    icon: string;
+}
+
+const Template: Story<IconProps> = (args) => ({
     components: { UIcon },
     setup() {
         return { args };
@@ -15,21 +19,21 @@ const Template = (args: any) => ({
 });
 
 // Alarms
-export const Alarm: any = Template.bind({});
+export const Alarm = Template.bind({});
 Alarm.args = { icon: "alarm" };
 
-export const AlarmFilled: any = Template.bind({});
+export const AlarmFilled = Template.bind({});
 AlarmFilled.args = { icon: "alarm-fill" };
 
 // Arrows
-export const ArrowLeft: any = Template.bind({});
+export const ArrowLeft = Template.bind({});
 ArrowLeft.args = { icon: "arrow-left" };
 
-export const ArrowUp: any = Template.bind({});
+export const ArrowUp = Template.bind({});
 ArrowUp.args = { icon: "arrow-up" };
 
-export const ArrowRight: any = Template.bind({});
+export const ArrowRight = Template.bind({});
 ArrowRight.args = { icon: "arrow-right" };
 
-export const ArrowDown: any = Template.bind({});
+export const ArrowDown = Template.bind({});
 ArrowDown.args = { icon: "arrow-down" };

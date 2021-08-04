@@ -1,12 +1,12 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+import { Meta, Story } from "@storybook/vue3";
 import { USetting, UNumberInput } from "../index";
 
-export default {
+export default <Meta>{
     title: "USetting",
     component: USetting,
 };
 
-const Template = () => ({
+const Template: Story = () => ({
     components: { USetting, UNumberInput },
     template: `<USetting>
         <template v-slot:label>
@@ -18,4 +18,4 @@ const Template = () => ({
     </USetting>`,
 });
 
-export const WithNumberInput: any = Template.bind({});
+export const WithNumberInput = Template.bind({});
