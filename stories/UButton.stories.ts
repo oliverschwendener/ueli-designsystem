@@ -20,35 +20,35 @@ const Template: Story<ButtonProps> = (args: ButtonProps) => ({
     template: `<UButton v-bind="args" />`,
 });
 
-export const DefaultButton: Story<ButtonProps> = Template.bind({});
+export const DefaultButton = Template.bind({});
 DefaultButton.args = {
     label: "Click me!",
     type: "default",
     size: "medium",
 };
 
-export const SuccessButton: Story<ButtonProps> = Template.bind({});
+export const SuccessButton = Template.bind({});
 SuccessButton.args = {
     label: "Click me!",
     type: "success",
     size: "medium",
 };
 
-export const WarningButton: Story<ButtonProps> = Template.bind({});
+export const WarningButton = Template.bind({});
 WarningButton.args = {
     label: "Click me!",
     type: "warning",
     size: "medium",
 };
 
-export const DangerButton: Story<ButtonProps> = Template.bind({});
+export const DangerButton = Template.bind({});
 DangerButton.args = {
     label: "Click me!",
     type: "danger",
     size: "medium",
 };
 
-export const SmallButton: Story<ButtonProps> = Template.bind({});
+export const SmallButton = Template.bind({});
 SmallButton.args = {
     label: "Click me!",
     type: "default",
