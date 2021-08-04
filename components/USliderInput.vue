@@ -55,7 +55,7 @@ export default defineComponent({
 
     setup({ value }, { emit }) {
         const localValue = ref(value);
-        const changed = (): void => emit("valueChanged", localValue.value);
+        const changed = (): void => emit("valueChanged", Number(localValue.value));
 
         return {
             localValue,
