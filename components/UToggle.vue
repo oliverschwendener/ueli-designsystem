@@ -1,17 +1,13 @@
 <template>
-    <div class="toggle" :class="toggledClass" @click="toggle">
-        <div class="indicator" :class="toggledClass"></div>
+    <div class="toggle" :class="getToggledCssClasses(toggled)" @click="toggle">
+        <div class="indicator" :class="getToggledCssClasses(toggled)"></div>
     </div>
 </template>
 
 <script lang="ts">
-import { computed, defineComponent } from "vue";
+import { defineComponent } from "vue";
 
 export default defineComponent({
-    emits: {
-        toggle: (): boolean => true,
-    },
-
     props: {
         toggled: {
             required: true,
@@ -19,13 +15,13 @@ export default defineComponent({
         },
     },
 
-    setup({ toggled }, { emit }) {
-        const toggledClass = computed((): string => (toggled ? "toggled" : ""));
+    setup({}, { emit }) {
         const toggle = (): void => emit("toggle");
+        const getToggledCssClasses = (t: boolean) => (t ? "toggled" : "");
 
         return {
-            toggledClass,
             toggle,
+            getToggledCssClasses,
         };
     },
 });
