@@ -9,9 +9,7 @@ import { defineComponent } from "vue";
 
 export default defineComponent({
     emits: {
-        click: (): boolean => {
-            return true;
-        },
+        click: (): boolean => true,
     },
 
     props: {
@@ -31,10 +29,10 @@ export default defineComponent({
         },
     },
 
-    methods: {
-        onClick(): void {
-            this.$emit("click");
-        },
+    setup({}, { emit }) {
+        return {
+            onClick: () => emit("click"),
+        };
     },
 });
 </script>

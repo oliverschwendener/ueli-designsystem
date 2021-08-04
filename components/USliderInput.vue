@@ -18,9 +18,13 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, ref } from "vue";
 
 export default defineComponent({
+    emits: {
+        valueChanged: (payload: number): boolean => payload !== undefined,
+    },
+
     props: {
         min: {
             type: Number,
@@ -49,22 +53,14 @@ export default defineComponent({
         },
     },
 
-    data() {
+    setup({ value }, { emit }) {
+        const localValue = ref(value);
+        const changed = (): void => emit("valueChanged", localValue.value);
+
         return {
-            localValue: this.value,
+            localValue,
+            changed,
         };
-    },
-
-    computed: {
-        computedValue(): number {
-            return this.localValue;
-        },
-    },
-
-    methods: {
-        changed(): void {
-            this.$emit("valueChanged", Number(this.localValue));
-        },
     },
 });
 </script>

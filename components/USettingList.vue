@@ -8,7 +8,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { computed, defineComponent } from "vue";
 export default defineComponent({
     props: {
         title: {
@@ -18,10 +18,10 @@ export default defineComponent({
         },
     },
 
-    computed: {
-        hasTitle(): boolean {
-            return this.title !== "";
-        },
+    setup({ title }) {
+        return {
+            hasTitle: computed((): boolean => title !== ""),
+        };
     },
 });
 </script>

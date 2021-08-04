@@ -11,11 +11,15 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { computed, defineComponent } from "vue";
 import UIconButton from "./UIconButton.vue";
 import UIcon from "./UIcon.vue";
 
 export default defineComponent({
+    emits: {
+        close: (): boolean => true,
+    },
+
     props: {
         message: {
             type: String,
@@ -44,16 +48,11 @@ export default defineComponent({
         UIconButton,
     },
 
-    computed: {
-        hasIcon(): boolean {
-            return this.icon !== undefined;
-        },
-    },
-
-    methods: {
-        close() {
-            this.$emit("close");
-        },
+    setup({ icon }, { emit }) {
+        return {
+            hasIcon: computed((): boolean => icon !== undefined),
+            close: () => emit("close"),
+        };
     },
 });
 </script>

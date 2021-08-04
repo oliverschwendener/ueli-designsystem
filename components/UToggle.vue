@@ -5,13 +5,11 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { computed, defineComponent } from "vue";
 
 export default defineComponent({
     emits: {
-        toggle: () => {
-            return true;
-        },
+        toggle: (): boolean => true,
     },
 
     props: {
@@ -21,16 +19,14 @@ export default defineComponent({
         },
     },
 
-    computed: {
-        toggledClass(): string {
-            return this.toggled ? "toggled" : "";
-        },
-    },
+    setup({ toggled }, { emit }) {
+        const toggledClass = computed((): string => (toggled ? "toggled" : ""));
+        const toggle = (): void => emit("toggle");
 
-    methods: {
-        toggle(): void {
-            this.$emit("toggle");
-        },
+        return {
+            toggledClass,
+            toggle,
+        };
     },
 });
 </script>

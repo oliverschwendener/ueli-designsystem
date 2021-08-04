@@ -3,7 +3,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { computed, defineComponent } from "vue";
 import "bootstrap-icons/font/bootstrap-icons.css";
 
 export default defineComponent({
@@ -14,10 +14,10 @@ export default defineComponent({
         },
     },
 
-    computed: {
-        className(): string {
-            return `bi-${this.icon}`;
-        },
+    setup({ icon }) {
+        return {
+            className: computed(() => `bi-${icon}`),
+        };
     },
 });
 </script>

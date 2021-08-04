@@ -3,8 +3,12 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, ref } from "vue";
 export default defineComponent({
+    emits: {
+        changed: (payload: number): boolean => payload !== undefined,
+    },
+
     props: {
         value: {
             type: Number,
@@ -12,16 +16,14 @@ export default defineComponent({
         },
     },
 
-    data() {
-        return {
-            localValue: this.value,
-        };
-    },
+    setup({ value }, { emit }) {
+        const localValue = ref(value);
+        const changed = (): void => emit("changed", Number(localValue.value));
 
-    methods: {
-        changed() {
-            this.$emit("changed", Number(this.localValue));
-        },
+        return {
+            localValue,
+            changed,
+        };
     },
 });
 </script>
