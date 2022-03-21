@@ -29,7 +29,7 @@ export default defineComponent({
         },
     },
 
-    setup({}, { emit }) {
+    setup(_, { emit }) {
         return {
             onClick: () => emit("click"),
         };
