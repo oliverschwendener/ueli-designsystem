@@ -7,23 +7,10 @@
     </div>
 </template>
 
-<script lang="ts">
-import { computed, defineComponent } from "vue";
-export default defineComponent({
-    props: {
-        title: {
-            type: String,
-            required: false,
-            default: "",
-        },
-    },
-
-    setup({ title }) {
-        return {
-            hasTitle: computed((): boolean => title !== ""),
-        };
-    },
-});
+<script lang="ts" setup>
+import { computed, defineProps } from "vue";
+const { title } = defineProps<{ title?: string }>();
+const hasTitle = computed((): boolean => title !== "");
 </script>
 
 <style scoped>

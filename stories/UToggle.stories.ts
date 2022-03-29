@@ -16,8 +16,8 @@ const Template: Story<ToggleProps> = (args) => ({
     setup() {
         const toggled = ref(args.toggled);
 
-        const toggle = (): void => {
-            toggled.value = !toggled.value;
+        const toggle = (newValue: boolean): void => {
+            toggled.value = newValue;
         };
 
         return { toggled, toggle };

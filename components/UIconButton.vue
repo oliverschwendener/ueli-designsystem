@@ -1,31 +1,19 @@
 <template>
-    <div class="icon-button" :class="size">
-        <UIcon class="icon" :class="size" :icon="icon" />
+    <div class="icon-button" :class="computedSize">
+        <UIcon class="icon" :class="computedSize" :icon="icon" />
     </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
+<script lang="ts" setup>
+import { computed, defineProps } from "vue";
 import UIcon from "./UIcon.vue";
 
-export default defineComponent({
-    components: {
-        UIcon,
-    },
+const { size } = defineProps<{
+    icon: string;
+    size?: string;
+}>();
 
-    props: {
-        icon: {
-            type: String,
-            required: true,
-        },
-
-        size: {
-            type: String,
-            required: false,
-            default: "medium",
-        },
-    },
-});
+const computedSize = computed<string>(() => size ?? "medium");
 </script>
 
 <style scoped>

@@ -5,56 +5,30 @@
             {{ message }}
         </div>
         <div class="notification-actions">
-            <UIconButton v-if="closable" size="small" icon="x" @click="close" />
+            <UIconButton v-if="computedCloseable" size="small" icon="x" @click="close" />
         </div>
     </div>
 </template>
 
-<script lang="ts">
-import { computed, defineComponent } from "vue";
+<script lang="ts" setup>
+import { computed, defineEmits, defineProps } from "vue";
 import UIconButton from "./UIconButton.vue";
 import UIcon from "./UIcon.vue";
 
-export default defineComponent({
-    emits: {
-        close: (): boolean => true,
-    },
+const emit = defineEmits<{
+    (e: "close"): void;
+}>();
 
-    props: {
-        message: {
-            type: String,
-            required: true,
-        },
+const { icon, closable } = defineProps<{
+    message: string;
+    type: string;
+    icon?: string;
+    closable?: boolean;
+}>();
 
-        type: {
-            type: String,
-            required: true,
-        },
-
-        icon: {
-            type: String,
-            required: false,
-        },
-
-        closable: {
-            type: Boolean,
-            required: false,
-            default: true,
-        },
-    },
-
-    components: {
-        UIcon,
-        UIconButton,
-    },
-
-    setup({ icon }, { emit }) {
-        return {
-            hasIcon: computed((): boolean => icon !== undefined),
-            close: () => emit("close"),
-        };
-    },
-});
+const hasIcon = computed((): boolean => icon !== undefined);
+const close = () => emit("close");
+const computedCloseable = computed(() => closable ?? true);
 </script>
 
 <style scoped>

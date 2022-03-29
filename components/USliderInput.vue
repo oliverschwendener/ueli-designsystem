@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <div v-if="displayValue" class="value-container">
+        <div v-if="computedDisplayValue" class="value-container">
             <span class="value">{{ localValue }}</span>
         </div>
         <div class="slider-container">
@@ -17,52 +17,24 @@
     </div>
 </template>
 
-<script lang="ts">
-import { defineComponent, ref } from "vue";
+<script lang="ts" setup>
+import { ref, defineEmits, defineProps, computed } from "vue";
 
-export default defineComponent({
-    emits: {
-        valueChanged: (payload: number): boolean => payload !== undefined,
-    },
+const emit = defineEmits<{
+    (e: "valueChanged", payload: number): void;
+}>();
 
-    props: {
-        min: {
-            type: Number,
-            required: true,
-        },
+const { value, displayValue } = defineProps<{
+    min: number;
+    max: number;
+    step: number;
+    value: number;
+    displayValue?: boolean;
+}>();
 
-        max: {
-            type: Number,
-            required: true,
-        },
-
-        step: {
-            type: Number,
-            required: true,
-        },
-
-        value: {
-            type: Number,
-            required: true,
-        },
-
-        displayValue: {
-            required: false,
-            default: false,
-            type: Boolean,
-        },
-    },
-
-    setup({ value }, { emit }) {
-        const localValue = ref(value);
-        const changed = (): void => emit("valueChanged", Number(localValue.value));
-
-        return {
-            localValue,
-            changed,
-        };
-    },
-});
+const localValue = ref(value);
+const changed = (): void => emit("valueChanged", Number(localValue.value));
+const computedDisplayValue = computed(() => displayValue ?? false);
 </script>
 
 <style scoped>

@@ -2,30 +2,19 @@
     <input class="input" type="number" v-model="localValue" @change="changed" />
 </template>
 
-<script lang="ts">
-import { defineComponent, ref } from "vue";
-export default defineComponent({
-    emits: {
-        changed: (payload: number): boolean => payload !== undefined,
-    },
+<script lang="ts" setup>
+import { ref, defineEmits, defineProps } from "vue";
 
-    props: {
-        value: {
-            type: Number,
-            required: true,
-        },
-    },
+const emit = defineEmits<{
+    (e: "changed", payload: number): void;
+}>();
 
-    setup({ value }, { emit }) {
-        const localValue = ref(value);
-        const changed = (): void => emit("changed", Number(localValue.value));
+const { value } = defineProps<{
+    value: number;
+}>();
 
-        return {
-            localValue,
-            changed,
-        };
-    },
-});
+const localValue = ref(value);
+const changed = (): void => emit("changed", Number(localValue.value));
 </script>
 
 <style scoped>

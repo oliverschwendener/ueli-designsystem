@@ -1,30 +1,19 @@
 <template>
-    <div class="toggle" :class="getToggledCssClasses(toggled)" @click="toggle">
-        <div class="indicator" :class="getToggledCssClasses(toggled)"></div>
+    <div class="toggle" :class="cssClass" @click="toggle">
+        <div class="indicator" :class="cssClass"></div>
     </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
+<script lang="ts" setup>
+import { computed, defineEmits, defineProps } from "vue";
 
-export default defineComponent({
-    props: {
-        toggled: {
-            required: true,
-            type: Boolean,
-        },
-    },
+const emit = defineEmits<{
+    (e: "toggle", value: boolean): void;
+}>();
 
-    setup({}, { emit }) {
-        const toggle = (): void => emit("toggle");
-        const getToggledCssClasses = (t: boolean) => (t ? "toggled" : "");
-
-        return {
-            toggle,
-            getToggledCssClasses,
-        };
-    },
-});
+const props = defineProps<{ toggled: boolean }>();
+const toggle = (): void => emit("toggle", !props.toggled);
+const cssClass = computed<string>(() => (props.toggled ? "toggled" : ""));
 </script>
 
 <style scoped>

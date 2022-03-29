@@ -4,37 +4,20 @@
     </button>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
+<script lang="ts" setup>
+import { defineEmits, defineProps } from "vue";
 
-export default defineComponent({
-    emits: {
-        click: (): boolean => true,
-    },
+const emit = defineEmits<{
+    (e: "click"): void;
+}>();
 
-    props: {
-        label: {
-            type: String,
-            required: true,
-        },
+defineProps<{
+    label: string;
+    type: string;
+    size: string;
+}>();
 
-        type: {
-            type: String,
-            required: true,
-        },
-
-        size: {
-            type: String,
-            required: true,
-        },
-    },
-
-    setup(_, { emit }) {
-        return {
-            onClick: () => emit("click"),
-        };
-    },
-});
+const onClick = () => emit("click");
 </script>
 
 <style scoped>
